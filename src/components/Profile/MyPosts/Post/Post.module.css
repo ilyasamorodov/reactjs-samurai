@@ -1,0 +1,20 @@
+.post {
+    background-color:#efefef;
+    vertical-align: top;
+    text-align: top;
+}
+
+.avatar {
+    display: inline-block;
+}
+
+.avatar img {
+    display: block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+  
+.message {
+    display: inline-block;
+}

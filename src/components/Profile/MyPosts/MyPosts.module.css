@@ -1,0 +1,19 @@
+.posts {
+    background-color: #dadada;
+}
+
+.form {
+    text-align: right;
+}
+
+.form textarea {
+    display: block;
+    resize: none;
+    width: 100%;
+}
+
+.form input[type="button"] {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+}
