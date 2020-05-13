@@ -1,3 +1,71 @@
-.dialogs {
+.wrapper {
     background-color: antiquewhite;
+    display: grid;
+    grid-template-areas: "dialogs messages";
+    grid-template-columns: 3fr 9fr;
+}
+
+.dialogs {
+    grid-area: dialogs;
+    background-color: beige;
+    margin: 0;
+    padding: 0;
+}
+
+.dialogs .item {
+    list-style: none;
+    padding: 10px 15px;
+    border-bottom: 1px solid mediumseagreen;
+}
+
+.dialogs .active {
+    background-color: darkseagreen;
+}
+
+.messages {
+    grid-area: messages;
+    background-color: aliceblue;
+}
+
+.messages .items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.messages .item {
+    min-height: 50px;
+    padding: 5px;
+    border-bottom: 1px solid cadetblue;
+    display: grid;
+    grid-template-areas: "avatar text";
+    grid-template-columns: 1fr 11fr;
+}
+
+.item .avatar {
+    grid-area: avatar;
+}
+
+.item .text {
+    grid-area: text;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+.messages .form {
+    background-color: azure;
+    display: grid;
+    grid-template-areas: "message button";
+    grid-template-columns: 9fr 2fr;
+    padding: 15px 0;
+}
+
+.form .message {
+    grid-area: message;
+    margin: 0 10px;
+}
+
+.form .button {
+    grid-area: button;
+    margin: 0 10px;
 }

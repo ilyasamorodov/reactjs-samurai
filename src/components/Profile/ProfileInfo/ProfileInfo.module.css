@@ -1,0 +1,42 @@
+.info {
+    background-color: antiquewhite;
+    display: grid;
+    grid-template-areas: "banner" "user";
+    grid-template-rows: 140px auto;
+}
+
+.banner {
+    grid-area: banner;
+}
+
+.user {
+    grid-area: user;
+    display: grid;
+    grid-template-areas: "avatar details";
+    grid-template-columns: 2fr 10fr;
+    padding: 10px;
+}
+
+.user .avatar {
+    grid-area: avatar;
+}
+
+.user .details {
+    grid-area: details;
+    padding: 10px;
+}
+
+.details .name {
+    font-weight: bold;
+}
+
+.details .facts {
+    list-style: none;
+    margin: 0;
+    padding: 14px 0;
+}
+
+.facts li {
+    font-size: 14px;
+    padding: 2px 0;
+}
