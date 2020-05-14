@@ -1,32 +1,4 @@
-.profile {
-    background-color: beige;
+.wrapper {
+    background-color: white;
 }
 
-.banner img {
-    width: 100%;
-    height: 140px;
-}
-
-.info {
-    background-color: #ededed;
-}
-
-.info .avatar {
-    display: inline-block;
-    width: 20%;
-}
-
-.info .title {
-    font-weight: bold;
-}
-
-.avatar img {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
-
-.info .about {
-    display: inline-block;
-    width: 80%;
-}

@@ -1,42 +1,41 @@
-.info {
-    background-color: antiquewhite;
-    display: grid;
-    grid-template-areas: "banner" "user";
-    grid-template-rows: 140px auto;
+.info .banner {
+    height: 160px;
+    background: url('https://picsum.photos/800/160') top center no-repeat;
+    position: relative;
 }
 
-.banner {
-    grid-area: banner;
-}
-
-.user {
-    grid-area: user;
-    display: grid;
-    grid-template-areas: "avatar details";
-    grid-template-columns: 2fr 10fr;
-    padding: 10px;
-}
-
-.user .avatar {
-    grid-area: avatar;
-}
-
-.user .details {
-    grid-area: details;
-    padding: 10px;
-}
-
-.details .name {
+.banner h1 {
+    display: block;
+    padding: 20px;
+    color: white;
+    font-size: 24px;
     font-weight: bold;
 }
 
-.details .facts {
+.info .user {
+    background-color: #ebebeb;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+}
+
+.info h2 {
+    margin-bottom: 10px;
+}
+
+.info .facts {
     list-style: none;
-    margin: 0;
-    padding: 14px 0;
+    display: grid;
+    --grid-template-columns: 1fr 1fr 1fr;
 }
 
 .facts li {
-    font-size: 14px;
-    padding: 2px 0;
+    font-size: 12px;
+    padding: 5px 15px 5px 0;
+    border-bottom: 1px solid #dadada;
+}
+
+.facts .value {
+    font-weight: bold;
+    color: #333333;
 }
