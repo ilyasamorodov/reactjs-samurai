@@ -1,0 +1,41 @@
+.block {
+
+}
+
+.block h2 {
+    margin: 15px 10px;
+}
+
+.items {
+    list-style: none;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.item {
+    padding: 5px;
+}
+
+.item:hover {
+    outline: 1px solid #ededed;
+}
+
+.items img {
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.items .name {
+    display: block;
+    padding-top: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    text-decoration: none;
+    color: #6495ed;
+}
+
+.items .name:hover {
+    text-decoration: underline;
+}

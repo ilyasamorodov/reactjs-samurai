@@ -1,71 +1,115 @@
 .wrapper {
-    background-color: antiquewhite;
     display: grid;
-    grid-template-areas: "dialogs messages";
-    grid-template-columns: 3fr 9fr;
+    grid-template-columns: 2fr 8fr;
+    background-color: white;
 }
 
 .dialogs {
-    grid-area: dialogs;
-    background-color: beige;
-    margin: 0;
-    padding: 0;
+    list-style: none;
 }
 
 .dialogs .item {
-    list-style: none;
-    padding: 10px 15px;
-    border-bottom: 1px solid mediumseagreen;
+    background-color: #fafafa;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    grid-column-gap: 10px;
+    padding: 4px;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.dialogs .item:hover {
+    background-color: #efefef;
+}
+
+.dialogs a {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.dialogs .item img {
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
 }
 
 .dialogs .active {
-    background-color: darkseagreen;
+    background-color: #ededed;
 }
 
 .messages {
-    grid-area: messages;
-    background-color: aliceblue;
+    border-left: 20px solid #ededed;
+    padding: 10px;
 }
 
 .messages .items {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    overflow-y: scroll;
+    max-height: 550px;
 }
 
 .messages .item {
-    min-height: 50px;
-    padding: 5px;
-    border-bottom: 1px solid cadetblue;
     display: grid;
-    grid-template-areas: "avatar text";
-    grid-template-columns: 1fr 11fr;
+    grid-template-columns: 50px 6fr 2fr;
+    grid-template-areas: "avatar message .";
+    column-gap: 5px;
+    margin-bottom: 15px;
+    grid-row-start: 1;
 }
-
-.item .avatar {
+.messages .item.own {
+    grid-template-areas: ". message avatar";
+    grid-template-columns: 2fr 6fr 50px;
+}
+.messages .avatar {
     grid-area: avatar;
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
 }
-
-.item .text {
-    grid-area: text;
-    padding: 0 10px;
-    font-size: 12px;
-}
-
-.messages .form {
-    background-color: azure;
-    display: grid;
-    grid-template-areas: "message button";
-    grid-template-columns: 9fr 2fr;
-    padding: 15px 0;
-}
-
-.form .message {
+.messages .text {
     grid-area: message;
-    margin: 0 10px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    color: #333333;
 }
 
-.form .button {
-    grid-area: button;
-    margin: 0 10px;
+.form {
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    column-gap: 10px;
+    padding: 15px 55px;
+    border-top: 1px solid #ebebeb;
+}
+
+.form input[type="text"] {
+    padding: 5px 10px;
+    outline: none;
+    letter-spacing: 1px;
+}
+
+.form input[type="text"]:focus {
+    outline: 1px solid cornflowerblue;
+}
+
+.form input[type="button"] {
+    display: block;
+    border-radius: 0;
+    border: 0;
+    background-color: #dadada;
+    letter-spacing: 1px;
+}
+
+.form input[type="button"]:focus {
+    outline: 1px solid cornflowerblue;
+}
+
+.form input[type="button"]:active {
+    background-color: cornflowerblue;
+    color: white;
 }
