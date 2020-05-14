@@ -1,3 +1,5 @@
+import {reRenderDOM} from "../render";
+
 let state = {
     profilePage: {
         postsData: [
@@ -89,5 +91,25 @@ let state = {
     }
 
 }
+
+export let fnAddPost = (postText) => {
+    let postObj = {
+        id: 10,
+        message: postText,
+        likesCount: 0
+    };
+    state.profilePage.postsData.push(postObj);
+    reRenderDOM(state);
+};
+
+export let fnSendMessage = (messageText) => {
+    let messageObj = {
+        id: 10,
+        own: true,
+        text: messageText
+    };
+    state.dialogsPage.messagesData.push(messageObj);
+    reRenderDOM(state);
+};
 
 export default state;

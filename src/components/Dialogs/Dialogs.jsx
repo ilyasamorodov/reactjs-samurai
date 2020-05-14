@@ -6,6 +6,8 @@ import MessageItem from "./MessageItem/MessageItem";
 
 const Dialogs = (props) => {
 
+    let messageInputReference = React.createRef();
+
     let dialogsItems = props.state.dialogsData.map(item =>
         <DialogItem id={item.id} avatar={item.avatar} name={item.name}/>
     );
@@ -13,6 +15,11 @@ const Dialogs = (props) => {
     let messagesItems = props.state.messagesData.map(message =>
         <MessageItem id={message.id} own={message.own} text={message.text}/>
     );
+
+    let sendMessage = () => {
+        let messageText = messageInputReference.current.value;
+        props.sendMessage(messageText);
+    };
 
     return (
         <div className={styles.wrapper}>
@@ -26,8 +33,8 @@ const Dialogs = (props) => {
                     {messagesItems}
                 </ul>
                 <div className={styles.form}>
-                    <input type="text" className={styles.message} placeholder="type in message..."/> <input
-                    type="button" className={styles.button} value="Send"/>
+                    <input ref={messageInputReference} type="text" placeholder="type in message..."/> <input
+                    type="button" onClick={sendMessage} value="Send"/>
                 </div>
             </div>
 
