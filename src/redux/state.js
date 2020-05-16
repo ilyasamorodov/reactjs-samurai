@@ -1,4 +1,7 @@
-import {reRenderDOM} from "../render";
+let reRenderDOM = () => {
+    console.log("State has changed");
+};
+
 
 let state = {
     profilePage: {
@@ -92,7 +95,7 @@ let state = {
         ]
     }
 
-}
+};
 
 export let functionAddPost = (postText) => {
     let postObj = {
@@ -124,6 +127,10 @@ export let handleInputMessage = (input) => {
 export let handleInputPost = (input) => {
     state.profilePage.postTextInput = input;
     reRenderDOM(state);
-}
+};
+
+export let subscribe = (observer) => {
+    reRenderDOM = observer;
+};
 
 export default state;
