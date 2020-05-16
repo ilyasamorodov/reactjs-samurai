@@ -10,10 +10,9 @@ const Profile = (props) => {
       <MyPosts
           posts={props.profilePage.postsData}
           postTextInput={props.profilePage.postTextInput}
-          handleInputPost={props.handleInputPost}
-          addPost={props.addPost}/>
+          store={props.store}/>
     </div>
   );
-}
+};
 
 export default Profile;
