@@ -4,9 +4,8 @@ import FriendsItem from "./FriendsItem/FriendsItem";
 
 const FriendsBlock = (props) => {
 
-    // let friendsData = props.friendsData.
     let friendItems = props.state.items.map(friend =>
-        <FriendsItem id={friend.id} avatar={friend.avatar} name={friend.name} />
+        <FriendsItem key={friend.id} id={friend.id} avatar={friend.avatar} name={friend.name} />
     );
 
     return (
@@ -17,6 +16,6 @@ const FriendsBlock = (props) => {
             </ul>
         </div>
     );
-}
+};
 
 export default FriendsBlock;

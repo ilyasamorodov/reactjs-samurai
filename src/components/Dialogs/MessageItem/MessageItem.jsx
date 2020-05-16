@@ -9,7 +9,7 @@ const MessageItem = (props) => {
 
     return (
         <li className={styles.item + own}>
-            <img src={avatar} className={styles.avatar}/>
+            <img src={avatar} className={styles.avatar} alt="avatar"/>
             <p className={styles.text}>{props.text}</p>
         </li>
     );

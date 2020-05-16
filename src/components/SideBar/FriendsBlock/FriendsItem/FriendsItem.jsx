@@ -9,7 +9,7 @@ const FriendsItem = (props) => {
 
     return (
         <li className={styles.item}>
-            <img src={props.avatar}/>
+            <img src={props.avatar} alt={props.name}/>
             <NavLink className={styles.name} to={path}>{props.name}</NavLink>
         </li>
     );

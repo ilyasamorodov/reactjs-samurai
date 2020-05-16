@@ -10,7 +10,7 @@ const ProfileInfo = (props) => {
 
             <div className={styles.user}>
                 <div className = {styles.avatar}>
-                    <img src="https://picsum.photos/id/1062/160/160" alt = "profile image" />
+                    <img src="https://picsum.photos/id/1062/160/160" alt={props.username}/>
                 </div>
                 <div className={styles.details}>
                     <h2 className={styles.name}>

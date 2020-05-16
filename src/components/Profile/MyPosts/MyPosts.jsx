@@ -7,19 +7,25 @@ const MyPosts = (props) => {
     let postTextareaReference = React.createRef();
 
     let postsItems = props.posts.map(post =>
-        <Post id={post.id} message={post.message} likesCount={post.likesCount}/>
+        <Post key={post.id} id={post.id} message={post.message} likesCount={post.likesCount}/>
     );
 
-    let _addPost =  () => {
+    let _addPost = () => {
         let postText = postTextareaReference.current.value;
         props.addPost(postText);
+        postTextareaReference.current.value = '';
+    };
+
+    let handleInputPost = () => {
+        let postText = postTextareaReference.current.value;
+        props.handleInputPost(postText);
     };
 
     return (
         <div className={styles.posts}>
             <h2>My posts</h2>
             <div className={styles.form}>
-                <textarea ref={postTextareaReference}></textarea>
+                <textarea ref={postTextareaReference} onChange={handleInputPost} value={props.postTextInput}/>
                 <input onClick={_addPost} type="button" value="Send"/>
             </div>
             { postsItems }

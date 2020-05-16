@@ -8,17 +8,23 @@ const Dialogs = (props) => {
 
     let messageInputReference = React.createRef();
 
-    let dialogsItems = props.state.dialogsData.map(item =>
-        <DialogItem id={item.id} avatar={item.avatar} name={item.name}/>
+    let dialogsItems = props.dialogsPage.dialogsData.map(item =>
+        <DialogItem key={item.id} id={item.id} avatar={item.avatar} name={item.name}/>
     );
 
-    let messagesItems = props.state.messagesData.map(message =>
-        <MessageItem id={message.id} own={message.own} text={message.text}/>
+    let messagesItems = props.dialogsPage.messagesData.map(message =>
+        <MessageItem key={message.id} id={message.id} own={message.own} text={message.text}/>
     );
 
     let sendMessage = () => {
         let messageText = messageInputReference.current.value;
         props.sendMessage(messageText);
+        messageInputReference.current.value = '';
+    };
+
+    let handleInputMessage = () => {
+        let messageText = messageInputReference.current.value;
+        props.handleInputMessage(messageText);
     };
 
     return (
@@ -33,7 +39,7 @@ const Dialogs = (props) => {
                     {messagesItems}
                 </ul>
                 <div className={styles.form}>
-                    <input ref={messageInputReference} type="text" placeholder="type in message..."/> <input
+                    <input ref={messageInputReference} onChange={handleInputMessage} type="text" value={props.dialogsPage.messageTextInput} placeholder="type in message..."/> <input
                     type="button" onClick={sendMessage} value="Send"/>
                 </div>
             </div>

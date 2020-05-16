@@ -13,7 +13,8 @@ let state = {
             {id: 4, message: "s dfsdf sdf sdf dsf sdf sdf ", likesCount: 42},
             {id: 5, message: "sd fsdf dsf dsf f", likesCount: 33},
             {id: 6, message: "sdf sd fdsf sdf sdf sdf ", likesCount: 21}
-        ]
+        ],
+        postTextInput: ''
     },
     dialogsPage: {
         dialogsData: [
@@ -69,7 +70,8 @@ let state = {
                 own: true,
                 text: "Разнообразный и богатый опыт дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание дальнейших направлений развития."
             }
-        ]
+        ],
+        messageTextInput: ''
     },
     sideBar: {
         blocks: [
@@ -77,14 +79,14 @@ let state = {
                 block_id: 1,
                 title: "Friends",
                 items: [
-                    {id: 3, avatar: "https://picsum.photos/id/1064/40", name: "Андрей"},
-                    {id: 4, avatar: "https://picsum.photos/id/1065/40", name: "Анна"},
-                    {id: 5, avatar: "https://picsum.photos/id/1066/40", name: "Сергей"},
-                    {id: 3, avatar: "https://picsum.photos/id/1064/40", name: "Андрей"},
-                    {id: 4, avatar: "https://picsum.photos/id/1065/40", name: "Анна"},
-                    {id: 5, avatar: "https://picsum.photos/id/1066/40", name: "Сергей"},
-                    {id: 3, avatar: "https://picsum.photos/id/1064/40", name: "Андрей"},
-                    {id: 4, avatar: "https://picsum.photos/id/1065/40", name: "Анна"}
+                    {id: 1, avatar: "https://picsum.photos/id/1064/40", name: "Андрей"},
+                    {id: 2, avatar: "https://picsum.photos/id/1065/40", name: "Анна"},
+                    {id: 3, avatar: "https://picsum.photos/id/1066/40", name: "Сергей"},
+                    {id: 4, avatar: "https://picsum.photos/id/1064/40", name: "Андрей"},
+                    {id: 5, avatar: "https://picsum.photos/id/1065/40", name: "Анна"},
+                    {id: 6, avatar: "https://picsum.photos/id/1066/40", name: "Сергей"},
+                    {id: 7, avatar: "https://picsum.photos/id/1064/40", name: "Андрей"},
+                    {id: 8, avatar: "https://picsum.photos/id/1065/40", name: "Анна"}
                 ]
             }
         ]
@@ -92,24 +94,36 @@ let state = {
 
 }
 
-export let fnAddPost = (postText) => {
+export let functionAddPost = (postText) => {
     let postObj = {
         id: 10,
         message: postText,
         likesCount: 0
     };
     state.profilePage.postsData.push(postObj);
+    state.profilePage.postTextInput = '';
     reRenderDOM(state);
 };
 
-export let fnSendMessage = (messageText) => {
+export let functionSendMessage = (messageText) => {
     let messageObj = {
         id: 10,
         own: true,
         text: messageText
     };
     state.dialogsPage.messagesData.push(messageObj);
+    state.dialogsPage.messageTextInput = '';
     reRenderDOM(state);
 };
+
+export let handleInputMessage = (input) => {
+    state.dialogsPage.messageTextInput = input;
+    reRenderDOM(state);
+};
+
+export let handleInputPost = (input) => {
+    state.profilePage.postTextInput = input;
+    reRenderDOM(state);
+}
 
 export default state;
