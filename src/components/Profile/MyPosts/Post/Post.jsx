@@ -3,15 +3,11 @@ import styles from './Post.module.css';
 
 const Post = (props) => {
     return (
-        <div className={styles.post}>
-            <div className={styles.avatar}>
-                <img src="https://picsum.photos/50" alt="user"/>
-            </div>
-            <div className={styles.message}>
-                <p>Likes: {props.likesCount}</p>
-                <p>{props.message}</p>
-            </div>
-        </div>
+        <li className={styles.post}>
+            <img src="https://picsum.photos/id/1062/50/50" className={styles.avatar} alt="user"/>
+            <p className={styles.message}>{props.message}</p>
+            <p className={styles.likes}>Likes: {props.likesCount}</p>
+        </li>
     );
 }
 

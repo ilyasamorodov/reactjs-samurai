@@ -28,7 +28,9 @@ const MyPosts = (props) => {
                 <textarea ref={postTextareaReference} onChange={handleInputPost} value={props.postTextInput}/>
                 <input onClick={_addPost} type="button" value="Send"/>
             </div>
-            { postsItems }
+            <ul className={styles.items}>
+                { postsItems }
+            </ul>
         </div>
     );
 }
