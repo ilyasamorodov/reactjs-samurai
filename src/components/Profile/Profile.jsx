@@ -10,7 +10,7 @@ const Profile = (props) => {
       <MyPosts
           posts={props.profilePage.postsData}
           postTextInput={props.profilePage.postTextInput}
-          store={props.store}/>
+          dispatch={props.dispatch}/>
     </div>
   );
 };

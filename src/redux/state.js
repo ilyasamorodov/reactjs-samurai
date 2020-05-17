@@ -91,17 +91,19 @@ let store = {
             ]
         }
     },
+
     getState() {
         return this._state;
     },
     subscribe(observer) {
         this._subscriber = observer;
     },
-    handleInputPost(input) {
+
+    _handleInputPost(input) {
         this._state.profilePage.postTextInput = input;
         this._subscriber(this._state);
     },
-    addPost(postText) {
+    _addPost(postText) {
         let postObj = {
             id: 10,
             message: postText,
@@ -111,11 +113,11 @@ let store = {
         this._state.profilePage.postTextInput = '';
         this._subscriber(this._state);
     },
-    handleInputMessage(input) {
+    _handleInputMessage(input) {
         this._state.dialogsPage.messageTextInput = input;
         this._subscriber(this._state);
     },
-    sendMessage(messageText) {
+    _sendMessage(messageText) {
         let messageObj = {
             id: 10,
             own: true,
@@ -124,6 +126,23 @@ let store = {
         this._state.dialogsPage.messagesData.push(messageObj);
         this._state.dialogsPage.messageTextInput = '';
         this._subscriber(this._state);
+    },
+
+    dispatch(action) {
+        switch (action.type) {
+            case 'HANDLE_INPUT_POST':
+                this._handleInputPost(action.input);
+                break;
+            case 'ADD_POST':
+                this._addPost(action.postText);
+                break;
+            case 'HANDLE_INPUT_MESSAGE':
+                this._handleInputMessage(action.input);
+                break;
+            case 'SEND_MESSAGE':
+                this._sendMessage(action.messageText);
+                break;
+        }
     }
 };
 

@@ -12,13 +12,15 @@ const MyPosts = (props) => {
 
     let _addPost = () => {
         let postText = postTextareaReference.current.value;
-        props.store.addPost(postText);
+        let action = {type: 'ADD_POST', postText: postText};
+        props.dispatch(action);
         postTextareaReference.current.value = '';
     };
 
     let handleInputPost = () => {
         let postText = postTextareaReference.current.value;
-        props.store.handleInputPost(postText);
+        let action = {type: 'HANDLE_INPUT_POST', postText: postText};
+        props.dispatch(action)
     };
 
     return (

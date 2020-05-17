@@ -18,13 +18,15 @@ const Dialogs = (props) => {
 
     let sendMessage = () => {
         let messageText = messageInputReference.current.value;
-        props.store.sendMessage(messageText);
+        let action = {type: 'SEND_MESSAGE', messageText: messageText};
+        props.dispatch(action);
         messageInputReference.current.value = '';
     };
 
     let handleInputMessage = () => {
         let messageText = messageInputReference.current.value;
-        props.store.handleInputMessage(messageText);
+        let action = {type: 'HANDLE_INPUT_MESSAGE', messageText: messageText};
+        props.dispatch(action);
     };
 
     return (
